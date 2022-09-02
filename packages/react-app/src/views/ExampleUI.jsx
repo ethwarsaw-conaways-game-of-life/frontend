@@ -1,5 +1,6 @@
 import { Button, Card, DatePicker, Divider, Input, Progress, Slider, Spin, Switch } from "antd";
 import React, { useState } from "react";
+import styles from './styles.module.css'
 import { utils } from "ethers";
 import { SyncOutlined } from "@ant-design/icons";
 
@@ -19,7 +20,11 @@ export default function ExampleUI({
   const [newPurpose, setNewPurpose] = useState("loading...");
 
   return (
-    <div>
+    <div className={styles.wrapper}>
+      <div className={styles.board}>
+
+      </div>
+      <div>
       {/*
         ⚙️ Here is an example UI that displays and sets the purpose in your smart contract:
       */}
@@ -216,6 +221,8 @@ export default function ExampleUI({
           </div>
         </Card>
       </div>
+      </div>
     </div>
+ 
   );
 }
