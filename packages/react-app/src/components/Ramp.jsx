@@ -60,8 +60,7 @@ export default function Ramp(props) {
           setModalUp("up");
         }}
       >
-        <DollarCircleOutlined style={{ color: "#52c41a" }} />{" "}
-        {typeof props.price === "undefined" ? 0 : props.price.toFixed(2)}
+        Buy DAI
       </Button>
       <Modal
         title="Buy ETH"
@@ -80,23 +79,6 @@ export default function Ramp(props) {
           </Button>,
         ]}
       >
-        <p>
-          <Button
-            type={type}
-            size="large"
-            shape="round"
-            onClick={() => {
-              window.open("https://pay.sendwyre.com/purchase?destCurrency=ETH&sourceAmount=25&dest=" + props.address);
-            }}
-          >
-            <span style={{ paddingRight: 15 }} role="img">
-              <span role="img" aria-label="flag-us">
-                🇺🇸
-              </span>
-            </span>
-            Wyre
-          </Button>
-        </p>
         <p>
           {" "}
           <Button
@@ -121,22 +103,6 @@ export default function Ramp(props) {
               </span>
             </span>
             Ramp
-          </Button>
-        </p>
-
-        <p>
-          <Button
-            type={type}
-            size="large"
-            shape="round"
-            onClick={() => {
-              window.open("https://www.coinbase.com/buy-ethereum");
-            }}
-          >
-            <span style={{ paddingRight: 15 }} role="img" aria-label="bank">
-              🏦
-            </span>
-            Coinbase
           </Button>
         </p>
 
