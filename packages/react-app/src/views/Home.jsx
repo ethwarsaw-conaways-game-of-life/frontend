@@ -3,6 +3,7 @@ import { ethers } from "ethers";
 import GameOfLife from "../containers/GameOfLife";
 import { useParams } from "react-router-dom";
 import React from "react";
+
 import { Link } from "react-router-dom";
 
 /**
@@ -16,8 +17,6 @@ function Home({ yourLocalBalance, readContracts }) {
   // in this case, let's keep track of 'purpose' variable from our contract
   const purpose = useContractReader(readContracts, "YourContract", "purpose");
   const {id} = useParams();
-
-  console.log('here please ', id)
 
   return (
     <div>
