@@ -1,5 +1,5 @@
 import { ethers } from "hardhat";
-//TODO: add verify on https://tenderly.co/
+//TODO: add If you want to verify on https://tenderly.co/
 async function main() {
   const currentTimestampInSeconds = Math.round(Date.now() / 1000);
   const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;

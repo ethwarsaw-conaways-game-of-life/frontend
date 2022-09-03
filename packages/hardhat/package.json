@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "@nomicfoundation/hardhat-toolbox": "^1.0.2",
-    "hardhat": "^2.11.0"
+    "hardhat": "^2.11.0",
+    "rxjs": "^7.5.6"
   }
 }
