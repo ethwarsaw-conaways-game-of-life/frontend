@@ -2,7 +2,9 @@
 
   display: grid;
   grid-template-rows: repeat(25, 1fr);
-  height: 100vh;
+  height: 60vw;
+  width: 60vw;
+  margin-left: 20vw;
   border: 2px solid blue;
 }
 
