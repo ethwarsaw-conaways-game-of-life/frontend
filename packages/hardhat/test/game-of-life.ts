@@ -17,7 +17,7 @@ describe("Game Of Life", () => {
 
         // Deploy Nft Contract
         nftFactory = await ethers.getContractFactory(contractName);
-        gameOfLifeToken = await nftFactory.connect(owner).deploy("Conways game of life", "GOL", "") as GameOfLife;
+        gameOfLifeToken = await nftFactory.connect(owner).deploy("Conways game of life", "GOL", "") as GameOfLifeToken;
         await gameOfLifeToken.deployed();
     });
 
@@ -25,23 +25,21 @@ describe("Game Of Life", () => {
         expect(gameOfLifeToken.deployed()).to.exist;
     });
 
-    it("Should mint a token with a unique URI", async () => {
+    it("Should mint a token", async () => {
 
         // Given
         const duelResult = "http://some-duel-result";
 
-        const transferSingleListener = gameOfLifeToken.once("TransferSingle", (id)=>{
+        const transferSingleListener = ethers.provider.on("TransferSingle", (id)=>{
            console.log(id);
         });
 
         const transactionReceipt = await
             (await gameOfLifeToken.connect(owner).mint(user1.address, BigNumber.from(1), duelResult,[0x0])).wait();
 
+        console.log(transactionReceipt.events);
 
-        await lastValueFrom(timer(3000));
-        console.log(transactionReceipt);
-
-        expect(gameOfLifeToken.deployed()).to.exist;
+        expect((await gameOfLifeToken.connect(owner).balanceOf(user1.address, BigNumber.from(1))).toNumber()).to.eq(1);
     });
 
 });

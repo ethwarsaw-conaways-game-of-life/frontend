@@ -42,8 +42,8 @@ contract GameOfLifeToken is ERC1155, Ownable, ReentrancyGuard {
         uint256 _quantity,
         string calldata _uri,
         bytes memory _data
-    ) public {
-        _currentTokenID.add(1);
+    ) public onlyOwner {
+        _currentTokenID = _currentTokenID.add(1);
         _mint(_to, _currentTokenID, _quantity, _data);
         tokenSupply[_currentTokenID] = tokenSupply[_currentTokenID].add(_quantity);
         dualResult[_currentTokenID] = _uri;
