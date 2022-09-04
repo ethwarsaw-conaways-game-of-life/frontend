@@ -6,13 +6,11 @@ import { useState } from 'react'
 export default function PurchaseForm() {
 
   const [roomName, setRoomName] = useState('')
-
-  const depositBet = () => {
-    console.log('purchased')
-  }
+  const [passcode, setPasscode] = useState('')
 
   const createRoom = async (roomName) => {
-    await setDoc(doc(db, 'rooms', roomName), {name: roomName});
+    if(!passcode){return}
+    await setDoc(doc(db, 'rooms', roomName), {name: roomName, passcode: passcode});
   };
 
   return (
@@ -26,6 +24,13 @@ export default function PurchaseForm() {
       }}
     >
       <h3>Create a name for the room and deposit your 15 DAI bet to create a game room</h3>
+      <label>Passcode</label>
+      <input 
+        style={{width: '30%', marginTop: '1em', color: 'black'}} 
+        type="text" 
+        value={passcode}  
+        onChange={(e) => {setPasscode(e.target.value)}}
+      />
       <label>Room Name</label>
       <input 
         style={{width: '30%', marginTop: '1em', color: 'black'}} 

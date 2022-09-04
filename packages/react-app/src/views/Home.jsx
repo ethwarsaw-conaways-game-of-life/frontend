@@ -1,5 +1,5 @@
 import { useContractReader } from "eth-hooks";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import PurchaseForm from "../containers/forms/purchaseForm";
 import React from "react";
 
@@ -13,9 +13,6 @@ function Home({ yourLocalBalance, readContracts }) {
   // you can also use hooks locally in your component of choice
   // in this case, let's keep track of 'purpose' variable from our contract
   const purpose = useContractReader(readContracts, "YourContract", "purpose");
-  const {id} = useParams();
-
-  console.log('here please ', id)
 
   return (
     <div>

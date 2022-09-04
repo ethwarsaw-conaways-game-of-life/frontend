@@ -4,7 +4,8 @@ import Row from './row';
 import styles from './styles.module.css'
 
 export default function GameBoard() {
-  const [fundedStatus, setFundedStatus] = useState(false)
+  const [fundedStatus, setFundedStatus] = useState(true)
+  const [player, setPlayer] = useState()
 
   return (
     <div>

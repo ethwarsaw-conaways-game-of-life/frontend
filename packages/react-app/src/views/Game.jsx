@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
  * @param {*} readContracts contracts from current chain already pre-loaded using ethers contract module. More here https://docs.ethers.io/v5/api/contract/contract/
  * @returns react component
  **/
-function Game({ yourLocalBalance, readContracts }) {
+function Game({ yourLocalBalance, readContracts, address, mainnetProvider, localProvider }) {
   // you can also use hooks locally in your component of choice
   // in this case, let's keep track of 'purpose' variable from our contract
   const purpose = useContractReader(readContracts, "YourContract", "purpose");
@@ -21,7 +21,7 @@ function Game({ yourLocalBalance, readContracts }) {
 
   return (
     <div>
-      <GameOfLife />
+      <GameOfLife address={address}/>
     </div>
   );
 }

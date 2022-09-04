@@ -300,7 +300,12 @@ function App(props) {
         </Route>
         <Route exact path="/game/:id">
           {/* pass in any web3 props to this Home component. For example, yourLocalBalance */}
-          <Game />
+          <Game 
+            address={address}
+            mainnetProvider={mainnetProvider}
+            localProvider={localProvider}
+            yourLocalBalance={yourLocalBalance}
+          />
         </Route>
         <Route exact path="/debug">
           {/*

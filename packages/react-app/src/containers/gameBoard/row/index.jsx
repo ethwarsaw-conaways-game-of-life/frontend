@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import Cell from '../cell'
 import styles from './styles.module.css'
 
 export const plays = []
@@ -26,11 +27,12 @@ export default function Row({row}) {
     <div className={styles.row}>
       {
         cols.map((col, i) => {
-          return <button 
-            value={[row, col]}  
+          return <Cell 
+            row={row}
+            col={col} 
             className={styles.btn}
-            onClick={(e) => handleMakePlay(e.target.value)}  
-          >{i}</button>
+            handleMakePlay={(e) => handleMakePlay(e.target.value)}  
+          />
         })
       }
     </div>
