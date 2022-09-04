@@ -1,6 +1,4 @@
 import React from 'react'
-import { doc, addDoc, collection, setDoc} from "firebase/firestore"; 
-import { db } from "../../../firebase";
 import { useState } from 'react'
 import { doc, addDoc, collection, setDoc} from "firebase/firestore"; 
 
@@ -16,14 +14,6 @@ export default function PurchaseForm() {
   const createRoom = async (roomName) => {
     if(!passcode){return}
     await setDoc(doc(db, 'rooms', roomName), {name: roomName, passcode: passcode});
-  };
-
-  const createRoom = async (roomName) => {
-    await addDoc(collection(db, 'rooms'), {name: roomName});
-  };
-
-  const createRoom2 = async (roomName) => {
-    await setDoc(doc(db, 'rooms', roomName), {name: roomName});
   };
 
   return (

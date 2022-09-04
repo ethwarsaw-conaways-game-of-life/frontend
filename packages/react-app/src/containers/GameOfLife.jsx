@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import PurchaseForm from './forms/purchaseForm'
-import { doc, getDoc, setDoc } from 'firebase/firestore'
+import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore'
 import { db } from '../firebase'
 import { useLocation } from 'react-router-dom'
 import GameBoard from './gameBoard'
@@ -28,6 +28,7 @@ export default function GameOfLife({address}) {
         setSecret(key.passcode)
         console.log(secret, 'got the key')
         await setDoc(doc(db, `rooms/${key.name}/players`, address), {player: address});
+        await updateDoc(docRef, {player: address,})
     } catch(error) {
         console.log(error)
     }
@@ -47,6 +48,12 @@ export default function GameOfLife({address}) {
       {
         passcode === secret && secret !== '' ?
         <>
+        <button style={{marginBottom: '2em', 
+        backgroundColor: 'lightblue', color: 'black',
+        width: '30%',
+        height: '6vh',
+        borderRadius: '12px'
+        }}>Play Random</button>
           <GameBoard />
         </>
         :
