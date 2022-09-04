@@ -293,7 +293,7 @@ function App(props) {
       </Menu>
 
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/:name">
           {/* pass in any web3 props to this Home component. For example, yourLocalBalance */}
           <Home yourLocalBalance={yourLocalBalance} readContracts={readContracts} />
         </Route>

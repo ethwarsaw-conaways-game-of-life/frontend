@@ -10,6 +10,7 @@ import styles from './styles.module.css'
 export default function GameOfLife({address}) {
 
   const [tokensPurchased, setPurchaseStatus] = useState(false)
+
   const [passcode, setPasscode] = useState('')
   const [secret, setSecret] = useState('')
   const [playerAddress, setAddress] = useState('')
